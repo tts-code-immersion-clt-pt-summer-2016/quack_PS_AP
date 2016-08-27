@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
+  # get 'profiles/:id' => 'profiles#show'
+
+  # get 'profiles/index' => 'profiles#index'
+
+  resources :profiles, only: [:index, :show]
+
   root 'tweets#index'
 
   devise_for :users
 
   resources :tweets
+  resources :relationships
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
+  has_many :relationships
+  has_many :friends, through: :relationships 
 end

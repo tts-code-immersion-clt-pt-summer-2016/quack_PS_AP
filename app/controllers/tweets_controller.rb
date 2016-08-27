@@ -43,7 +43,7 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     respond_to do |format|
-      format.html {redirect_to tweets_path, notice: "Tweet was deleted"}
+      format.html {redirect_to tweets_path, notice: "Tweet was successfully deleted"}
     end    
   end
 
