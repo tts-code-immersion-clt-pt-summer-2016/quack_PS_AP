@@ -13,8 +13,14 @@ class RelationshipsController < ApplicationController
 	end
 
 	def destroy
-		
+	  @relationship = current_user.relationships.find(params[:id])
+	  @relationship.destroy
+
+	  respond_to do |format|
+	    format.html {redirect_to profile_path(current_user.id), notice: 'Succesfully Unfollowed User'}
+	  end
 	end
+
 	private
 
 	def relationship_params

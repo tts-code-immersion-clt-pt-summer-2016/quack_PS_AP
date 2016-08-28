@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
 
+  # get 'likes/create'
+
   # get 'profiles/:id' => 'profiles#show'
 
   # get 'profiles/index' => 'profiles#index'
 
   resources :profiles, only: [:index, :show]
+  resources :relationships
+
+  resources :tweets do
+   resource :like
+  end
 
   root 'tweets#index'
 
   devise_for :users
-
-  resources :tweets
-  resources :relationships
-
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
